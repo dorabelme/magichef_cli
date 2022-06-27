@@ -1,0 +1,6 @@
+node_modules
+package-lock.json
+magichef-linux
+magichef-macos
+magichef-win.exe
+.DS_Store

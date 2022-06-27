@@ -1,0 +1,85 @@
+# Ingredient tests
+
+magichef ingredient get # lists all the ingredients
+magichef ingredient add # should error out
+magichef ingredient add --name='Kale' # should error out
+magichef ingredient add --name='Kale' --units='Grams' # should succeed
+magichef ingredient add --name='Kale' --units='Grams' # should fail to ensure unique name
+
+magichef ingredient update --id=16 # should fail
+magichef ingredient update --id=16 --name='New Kale' # should succeed
+magichef ingredient update --id=16 --units='New Grams' # should succeed
+magichef ingredient update --id=16 --name='Kale' --units='Grams' # should succeed 
+
+magichef ingredient remove --id=200 # should fail
+magichef ingredient remove --id=16 # should work
+
+
+
+# Inventory tests
+
+magichef inventory get # lists all the ingredients
+magichef inventory add # should error out
+magichef inventory add --ingredient-id=2 # should error out for missing amount
+magichef inventory add --ingredient-id=2 --amount=safs # should error out on invalid amount
+magichef inventory add --ingredient-id=2 --amount=-10 # should error out on invalid amount
+magichef inventory add --ingredient-id=2 --amount=0.45 # should work
+
+magichef inventory update # Should fail
+magichef inventory update --ingredient-id=2 # Should fail
+magichef inventory update --amount=6 # Should fail
+magichef inventory update --ingredient-id=200 --amount=6 # Should fail
+magichef inventory update --ingredient-id=2 --amount=-2 # should fail
+magichef inventory update --ingredient-id=2 --amount=20 # should work
+
+magichef inventory remove --id=200 # should fail
+magichef inventory remove --ingredient-id=200 # should fail
+magichef inventory remove --ingredient-id=2 # should work
+
+
+
+# Recipe tests
+
+magichef recipe get # lists all the recipes
+magichef recipe add # should error out
+magichef recipe add --name='' # should error out
+magichef recipe add --name='New Recipe' # should work
+
+magichef recipe update # should fail
+magichef recipe update --id=-1 # should fail
+magichef recipe update --id=-1 --name='Update recipe name' # should fail
+magichef recipe update --name='Update recipe name' # should fail
+magichef recipe update --id=3 --name='Update recipe name' # should work
+
+magichef recipe add-ingredient --id=0 # should fail
+magichef recipe add-ingredient --id=0 --ingredient-id=2 # should fail
+magichef recipe add-ingredient --id=0 --ingredient-id=2 --ingredient-amount=0 # should fail
+magichef recipe add-ingredient --id=3 --ingredient-id=2 --ingredient-amount=0 # should fail
+magichef recipe add-ingredient --id=3 --ingredient-id=0 --ingredient-amount=0 # should fail
+magichef recipe add-ingredient --id=3 --ingredient-id=2 --ingredient-amount=2 # should work
+magichef recipe add-ingredient --id=3 --ingredient-id=2 --ingredient-amount=2 # should fail
+
+magichef recipe get-ingredient-list --id=0 # should fail
+magichef recipe get-ingredient-list --id=1 # should work
+
+magichef recipe update-ingredient --id=0 # should fail
+magichef recipe update-ingredient --id=0 --ingredient-id=2 # should fail
+magichef recipe update-ingredient --id=0 --ingredient-id=2 --ingredient-amount=0 # should fail
+magichef recipe update-ingredient --id=3 --ingredient-id=2 --ingredient-amount=0 # should fail
+magichef recipe update-ingredient --id=3 --ingredient-id=0 --ingredient-amount=0 # should fail
+magichef recipe update-ingredient --id=3 --ingredient-id=2 --ingredient-amount=5 # should work
+
+magichef recipe remove-ingredient --id=0 # should fail
+magichef recipe remove-ingredient --id=0 --ingredient-id=2 # should fail
+magichef recipe remove-ingredient --id=0 --ingredient-id=2 --ingredient-amount=0 # should fail
+magichef recipe remove-ingredient --id=3 --ingredient-id=0 # should fail
+magichef recipe remove-ingredient --id=3 --ingredient-id=6 # should fail
+magichef recipe remove-ingredient --id=3 --ingredient-id=2 # should work
+
+magichef recipe status # should work
+magichef recipe status --id=0 # should fail
+magichef recipe status --id=3 # should fail and ask us to add an ingredient to the recipe
+magichef recipe status --id=1 # should work
+
+magichef recipe remove --id=0 # should fail
+magichef recipe remove --id=3 # should work

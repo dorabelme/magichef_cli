@@ -1,0 +1,130 @@
+{
+    "ingredient": [
+        {
+            "name": "Apple",
+            "units": "Slices"
+        },
+        {
+            "name": "Banana",
+            "units": "Slices"
+        },
+        {
+            "name": "Honey",
+            "units": "Teaspoons"
+        },
+        {
+            "name": "Flour",
+            "units": "Cups"
+        },
+        {
+            "name": "Salt",
+            "units": "Teaspoons"
+        },
+        {
+            "name": "Butter",
+            "units": "Teaspoons"
+        },
+        {
+            "name": "Blueberry",
+            "units": "Cups"
+        },
+        {
+            "name": "Jackfruit",
+            "units": "Cups"
+        },
+        {
+            "name": "Eggs",
+            "units": "Units"
+        },
+        {
+            "name": "Pasta",
+            "units": "Cups"
+        },
+        {
+            "name": "Salsa",
+            "units": "Cups"
+        },
+        {
+            "name": "Cheese",
+            "units": "Slices"
+        },
+        {
+            "name": "Bread",
+            "units": "Slices"
+        },
+        {
+            "name": "Beans",
+            "units": "Cans"
+        },
+        {
+            "name": "Milk",
+            "units": "Cups"
+        }
+    ],
+    "inventory": [
+        {
+            "ingredientId": 1,
+            "amount": 10
+        },
+        {
+            "ingredientId": 3,
+            "amount": 5
+        },
+        {
+            "ingredientId": 4,
+            "amount": 3
+        },
+        {
+            "ingredientId": 5,
+            "amount": 30
+        },
+        {
+            "ingredientId": 6,
+            "amount": 20
+        }
+    ],
+    "recipe": [
+        {
+            "name": "Apple Pie",
+            "ingredients": [
+                {
+                    "ingredientId": 1,
+                    "amount": 3
+                },
+                {
+                    "ingredientId": 3,
+                    "amount": 2
+                },
+                {
+                    "ingredientId": 4,
+                    "amount": 1
+                },
+                {
+                    "ingredientId": 5,
+                    "amount": 5
+                },
+                {
+                    "ingredientId": 6,
+                    "amount": 4
+                }
+            ]
+        },
+        {
+            "name": "Banana Shake",
+            "ingredients": [
+                {
+                    "ingredientId": 2,
+                    "amount": 3
+                },
+                {
+                    "ingredientId": 15,
+                    "amount": 5
+                },
+                {
+                    "ingredientId": 3,
+                    "amount": 2
+                }
+            ]
+        }
+    ]
+}
