@@ -21,7 +21,7 @@ const seedNewData = async (storage) => {
   console.log(`Starting to seed new data in ${storage}`);
 
   const fs = require('fs');
-  let rawdata = fs.readFileSync('/data/seed.json');
+  let rawdata = fs.readFileSync('./data/seed.json');
   let data = JSON.parse(rawdata);
 
   console.log('New data: ');
